@@ -23,7 +23,7 @@ namespace TicTacToe.WebUI.Hubs
             game.Play();
         }
 
-        void game_Ended(object sender, MessageEventArgs e)
+        protected void game_Ended(object sender, MessageEventArgs e)
         {
             //throw new NotImplementedException();
 
@@ -32,7 +32,7 @@ namespace TicTacToe.WebUI.Hubs
             //Clients.All
         }
 
-        void game_BoardUpdated(object sender, BoardEventArgs args)
+        protected void game_BoardUpdated(object sender, BoardEventArgs args)
         {
             //TODO: skicka ut nya positionen till klienten
 

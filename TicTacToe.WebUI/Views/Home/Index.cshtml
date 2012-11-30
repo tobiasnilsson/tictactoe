@@ -9,27 +9,28 @@
                 <h2>@ViewBag.Message</h2>
             </hgroup>
             <p>
-                Play this awesome game.
+                Spela det här awesoma spelet!
             </p>
         </div>
     </section>
 }
 
+<button type="button" >Spela!</button>
+
 <canvas id="boardCanvas" width="600" height="600"></canvas>
 
 <script>
     $(function() {
-        var gameHub = $.connection.game;
-        
-        gameHub.
 
         var boardCanvas = document.getElementById("boardCanvas");
         var ctx = boardCanvas.getContext("2d");
-
+        
         drawDisc(10, 20, "T");
         drawDisc(100, 200, "U");
-
-
+        
+        var gameHub = $.connection.game;
+        gameHub.play();
+        
         function drawDisc(x, y, name) {
             ctx.fillStyle = "rgb(255,0,0)";
             ctx.fillRect(x, y, 20, 20);
