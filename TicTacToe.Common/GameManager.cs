@@ -49,14 +49,13 @@ namespace TicTacToe.Common
 
             var maxDiscsOnBoard = board.BoundaryX * board.BoundaryY;
             int i = 0;
-            bool isWinner = false;
 
-            while (!isWinner)
+            while (true)
             {
                 //Sanity check
                 if (board.DiscsOnBoard.Count == maxDiscsOnBoard || i > 10000)
                 {
-                    OnEnded(new MessageEventArgs{Message = "Spelet avslutades oavgjort."});
+                    OnEnded(new MessageEventArgs{Message = string.Format("Spelet avslutades oavgjort på {0} omgångar.", i)});
                     break;
                 }
 
@@ -67,15 +66,19 @@ namespace TicTacToe.Common
                 var discPosition = currentPlayer.Play(board);
                 discPosition.PlayerName = currentPlayer.Name[0].ToString(CultureInfo.InvariantCulture);
 
-                isWinner = _boardFactory.AddDisc(discPosition, board, out isLegalPlay);
-
-                if (isWinner)
-                    msg = string.Format("Vinnare är {0} på {1} omgångar.", currentPlayer.Name, i);
-
-                else if (!isLegalPlay)
+                bool isWinner = _boardFactory.AddDisc(discPosition, board, out isLegalPlay);
+                
+                if (!isLegalPlay)
                     msg = string.Concat("Oregelmässigt spel av ", currentPlayer.Name);
 
                 OnBoardUpdated(new BoardEventArgs { CurrentBoard = board, Message = msg, LatestDiscPosition = discPosition });
+
+                if (isWinner)
+                {
+                    msg = string.Format("Vinnare är {0} på {1} omgångar med x,y={2},{3}.", currentPlayer.Name, i, discPosition.X, discPosition.Y);
+                    OnEnded(new MessageEventArgs { Message = msg });
+                    break;
+                }
 
                 i++;
             }

@@ -27,13 +27,18 @@ namespace TicTacToe.Console
                     play = answer.Equals("j", StringComparison.InvariantCultureIgnoreCase);
                 
                 if (play)
-                    game.Play();
+                    try
+                    {
+                        game.Play();
+                    }
+                    catch(NotSupportedException e){ System.Console.WriteLine("Endast två spelare tillåtna."); }
+                    catch (Exception e){ throw; }
             }
         }
 
-        static void Game_Ended(object sender, EventArgs e)
+        static void Game_Ended(object sender, MessageEventArgs e)
         {
-            System.Console.WriteLine("Spelet avslutades oavgjort!");
+            System.Console.WriteLine(e.Message);
         }
 
         static void Game_Changed(object sender, BoardEventArgs e)
