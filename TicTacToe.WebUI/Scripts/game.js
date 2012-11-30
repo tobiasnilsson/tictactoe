@@ -28,6 +28,11 @@
     });
 
     function drawDisc(x, y, name) {
+        
+        //Convert coords to fit the board since it is 30px spaces
+        x = x * 30;
+        y = y * 30;
+
         ctx.fillStyle = "rgb(255,0,0)";
         ctx.fillRect(x, y, 30, 30);
 

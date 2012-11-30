@@ -13,7 +13,9 @@ namespace TicTacToe.Console
     {
         private static void Main(string[] args)
         {
-            var game = new GameManager(new PlayerRepository(), new BoardFactory());
+            var game = new GameManager(
+                new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players"), 
+                new BoardFactory());
 
             game.BoardUpdated += Game_Changed;
             game.Ended += Game_Ended;

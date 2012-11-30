@@ -15,7 +15,9 @@ namespace TicTacToe.WebUI.Hubs
     {
         public void Play()
         {
-            var game = new GameManager(new PlayerRepository(), new BoardFactory());
+            var game = new GameManager(
+                new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players"), 
+                new BoardFactory());
 
             game.BoardUpdated += game_BoardUpdated;
             game.Ended += game_Ended;
