@@ -1,13 +1,10 @@
-using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Reflection;
 using TicTacToe.Common.Interfaces;
-using System.Linq;
 
-namespace TicTacToe.Common.Factories
+namespace TicTacToe.Common.Repositories
 {
     public class PlayerRepository : IPlayerRepository
     {

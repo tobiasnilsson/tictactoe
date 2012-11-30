@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using TicTacToe.Common;
+using TicTacToe.Common.Comparers;
 using TicTacToe.Common.Entities;
 using TicTacToe.Common.Interfaces;
 

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using TicTacToe.Common.Entities;
 
-namespace TicTacToe.Common
+namespace TicTacToe.Common.Comparers
 {
     public class PositionComparer : IEqualityComparer<DiscPosition>
     {

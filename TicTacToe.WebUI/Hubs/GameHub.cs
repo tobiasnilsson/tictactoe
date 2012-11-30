@@ -5,6 +5,7 @@ using System.Web;
 using Microsoft.AspNet.SignalR.Hubs;
 using TicTacToe.Common;
 using TicTacToe.Common.Factories;
+using TicTacToe.Common.Repositories;
 
 namespace TicTacToe.WebUI.Hubs
 {
