@@ -51,13 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoardEventArgs.cs" />
-    <Compile Include="BoardEventHandler.cs" />
+    <Compile Include="EventArgs\BoardEventArgs.cs" />
+    <Compile Include="EventHandlers\BoardEventHandler.cs" />
     <Compile Include="Entities\Board.cs" />
     <Compile Include="Entities\DiscPosition.cs" />
+    <Compile Include="EventArgs\MessageEventArgs.cs" />
     <Compile Include="Factories\BoardFactory.cs" />
     <Compile Include="Interfaces\IBoardFactory.cs" />
     <Compile Include="Interfaces\IPlayerRepository.cs" />
+    <Compile Include="EventHandlers\MessageEventHandler.cs" />
     <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />

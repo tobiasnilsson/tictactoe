@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using Microsoft.AspNet.SignalR.Hubs;
 using TicTacToe.Common;
+using TicTacToe.Common.EventArgs;
 using TicTacToe.Common.Factories;
 using TicTacToe.Common.Repositories;
 
@@ -22,7 +23,7 @@ namespace TicTacToe.WebUI.Hubs
             game.Play();
         }
 
-        void game_Ended(object sender, EventArgs e)
+        void game_Ended(object sender, MessageEventArgs e)
         {
             //throw new NotImplementedException();
 

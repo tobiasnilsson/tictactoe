@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TicTacToe.Common.Entities;
+using TicTacToe.Common.EventArgs;
+using TicTacToe.Common.EventHandlers;
 using TicTacToe.Common.Factories;
 using TicTacToe.Common.Interfaces;
 
@@ -13,7 +15,7 @@ namespace TicTacToe.Common
     public class GameManager
     {
         public event BoardEventHandler BoardUpdated;
-        public event EventHandler Ended;
+        public event MessageEventHandler Ended;
         
         private IPlayerRepository _playerFactory;
         IBoardFactory _boardFactory;
@@ -30,10 +32,10 @@ namespace TicTacToe.Common
                 BoardUpdated(this, e);
         }
 
-        protected virtual void OnEnded()
+        protected virtual void OnEnded(MessageEventArgs e)
         {
             if (Ended != null)
-                Ended(this, EventArgs.Empty);
+                Ended(this, e);
         }
 
         public void Play()
@@ -54,7 +56,7 @@ namespace TicTacToe.Common
                 //Sanity check
                 if (board.DiscsOnBoard.Count == maxDiscsOnBoard || i > 10000)
                 {
-                    OnEnded();
+                    OnEnded(new MessageEventArgs{Message = "Spelet avslutades oavgjort."});
                     break;
                 }
 
