@@ -27,7 +27,7 @@ namespace TicTacToe.WebUI.Hubs
 
         protected void game_Ended(object sender, MessageEventArgs e)
         {
-            Clients.All.gameEnded(e.Message);
+            Clients.All.gameEnded(string.Concat(DateTime.Now.ToShortTimeString(),": ",e.Message));
         }
 
         protected void game_BoardUpdated(object sender, BoardEventArgs args)
