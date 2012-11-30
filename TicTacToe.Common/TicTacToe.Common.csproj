@@ -58,10 +58,10 @@
     <Compile Include="Factories\BoardFactory.cs" />
     <Compile Include="Interfaces\IBoardFactory.cs" />
     <Compile Include="Interfaces\IPlayerRepository.cs" />
-    <Compile Include="Factories\PlayerRepository.cs" />
+    <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="GameManager.cs" />
     <Compile Include="Interfaces\IPlayer.cs" />
-    <Compile Include="PositionComparer.cs">
+    <Compile Include="Comparers\PositionComparer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

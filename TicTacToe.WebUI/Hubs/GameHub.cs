@@ -28,7 +28,7 @@ namespace TicTacToe.WebUI.Hubs
 
             //TODO: skicka ut vem som vann till klienten
 
-            //Clients.All = e.
+            //Clients.All
         }
 
         void game_BoardUpdated(object sender, BoardEventArgs args)
