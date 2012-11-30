@@ -52,7 +52,7 @@ namespace TicTacToe.Common
 
             while (true)
             {
-                System.Threading.Thread.Sleep(100);
+                System.Threading.Thread.Sleep(10);
 
                 //Sanity check
                 if (board.DiscsOnBoard.Count == maxDiscsOnBoard || i > 10000)

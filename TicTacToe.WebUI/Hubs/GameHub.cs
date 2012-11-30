@@ -27,14 +27,25 @@ namespace TicTacToe.WebUI.Hubs
 
         protected void game_Ended(object sender, MessageEventArgs e)
         {
-            Clients.All.addMessage(e.Message);
+            Clients.All.gameEnded(e.Message);
         }
 
         protected void game_BoardUpdated(object sender, BoardEventArgs args)
         {
             var latestMove = args.LatestDiscPosition;
 
-            Clients.All.addDisc(Context.ConnectionId, latestMove.X, latestMove.Y, latestMove.PlayerName);
+            var message = string.IsNullOrEmpty(args.Message)
+                              ? string.Empty
+                              : string.Concat(DateTime.Now.ToShortTimeString(),
+                                              ": ",
+                                              args.Message);
+
+            Clients.All.addDisc(
+                Context.ConnectionId, 
+                latestMove.X, 
+                latestMove.Y, 
+                latestMove.PlayerName, 
+                message);
         }
     }
 }
