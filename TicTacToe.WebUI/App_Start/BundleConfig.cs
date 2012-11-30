@@ -17,9 +17,12 @@ namespace TicTacToe.WebUI
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.unobtrusive*",
                         "~/Scripts/jquery.validate*"));
-            
+
             bundles.Add(new ScriptBundle("~/bundles/signalr").Include(
                         "~/Scripts/jquery.signalR-1.0.0-alpha2.min.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/game").Include(
+                        "~/Scripts/game.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.

@@ -14,32 +14,9 @@
         </div>
     </section>
 }
+<form action="/" method="POST" id="form1">
+    <button type="button" value="Spela!">Spela!</button>
 
-<button type="button" >Spela!</button>
+    <canvas id="boardCanvas" width="600" height="600"></canvas>
+</form>
 
-<canvas id="boardCanvas" width="600" height="600"></canvas>
-
-<script>
-    $(function() {
-
-        var boardCanvas = document.getElementById("boardCanvas");
-        var ctx = boardCanvas.getContext("2d");
-        
-        drawDisc(10, 20, "T");
-        drawDisc(100, 200, "U");
-        
-        var gameHub = $.connection.game;
-        gameHub.play();
-        
-        function drawDisc(x, y, name) {
-            ctx.fillStyle = "rgb(255,0,0)";
-            ctx.fillRect(x, y, 20, 20);
-
-            ctx.fillStyle = "rgb(0,255,0)";
-            ctx.font = "bold 16px Arial";
-            ctx.fillText(name, x, y);
-        }
-    
-    });
-
-</script>
