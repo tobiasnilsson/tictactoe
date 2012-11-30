@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Play this awesome game.
+            </p>
+        </div>
+    </section>
+}
+
+<canvas id="boardCanvas" width="600" height="600"></canvas>
+
+<script>
+    $(function() {
+        var gameHub = $.connection.game;
+        
+        gameHub.
+
+        var boardCanvas = document.getElementById("boardCanvas");
+        var ctx = boardCanvas.getContext("2d");
+
+        drawDisc(10, 20, "T");
+        drawDisc(100, 200, "U");
+
+
+        function drawDisc(x, y, name) {
+            ctx.fillStyle = "rgb(255,0,0)";
+            ctx.fillRect(x, y, 20, 20);
+
+            ctx.fillStyle = "rgb(0,255,0)";
+            ctx.font = "bold 16px Arial";
+            ctx.fillText(name, x, y);
+        }
+    
+    });
+
+</script>
