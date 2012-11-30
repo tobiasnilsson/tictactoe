@@ -33,7 +33,8 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/jqueryui")
-        @Scripts.Render("~/bundles/signalr")
+        <script src="~/Scripts/jquery.signalR-1.0.0-alpha2.min.js"></script>
+        <script src="/signalr/hubs" type="text/javascript"></script>
         @Scripts.Render("~/bundles/game")
         @RenderSection("scripts", required: false)
     </body>

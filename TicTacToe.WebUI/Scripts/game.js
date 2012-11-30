@@ -6,19 +6,34 @@
     drawVerticalLines(ctx);
     drawHorizontalLines(ctx);
 
-    drawDisc(10, 20, "T");
-    drawDisc(100, 200, "U");
+    //drawDisc(0, 0, "T");
+    //drawDisc(330, 540, "U");
+    //drawDisc(270, 180, "U");
 
-    //var gameHub = $.connection.game;
-    //gameHub.play();
+    var gameHub = $.connection.game;
+    gameHub.client.addMessage = function (message) {
+        $('#messages').append('<li>' + message + '</li>');
+    };
+    
+    gameHub.client.addDisc = function (connId, x, y, playerName) {
+        drawDisc(x, y, playerName);
+    };
+
+    // Start the connection
+    $.connection.hub.start().done(function () {
+        $("#playButton").click(function () {
+            // Call the play method on the server
+            gameHub.server.play();
+        });
+    });
 
     function drawDisc(x, y, name) {
         ctx.fillStyle = "rgb(255,0,0)";
-        ctx.fillRect(x, y, 20, 20);
+        ctx.fillRect(x, y, 30, 30);
 
         ctx.fillStyle = "rgb(0,255,0)";
         ctx.font = "bold 16px Arial";
-        ctx.fillText(name, x, y);
+        ctx.fillText(name, x+10, y+20);
     }
 
     function drawHorizontalLines(ctx) {

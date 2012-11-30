@@ -25,20 +25,14 @@ namespace TicTacToe.WebUI.Hubs
 
         protected void game_Ended(object sender, MessageEventArgs e)
         {
-            //throw new NotImplementedException();
-
-            //TODO: skicka ut vem som vann till klienten
-
-            //Clients.All
+            Clients.All.addMessage(e.Message);
         }
 
         protected void game_BoardUpdated(object sender, BoardEventArgs args)
         {
-            //TODO: skicka ut nya positionen till klienten
-
             var latestMove = args.LatestDiscPosition;
 
-            //Clients.discAdded(Context.ConnectionId, latestMove.X, latestMove.Y, latestMove.PlayerName);
+            Clients.All.addDisc(Context.ConnectionId, latestMove.X, latestMove.Y, latestMove.PlayerName);
         }
     }
 }
