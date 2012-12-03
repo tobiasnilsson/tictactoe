@@ -15,7 +15,8 @@ namespace TicTacToe.Console
         {
             var game = new GameManager(
                 new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players"), 
-                new BoardFactory());
+                new BoardFactory(),
+                new WinnerCheckerFactory());
 
             game.BoardUpdated += Game_Changed;
             game.Ended += Game_Ended;
@@ -38,7 +39,7 @@ namespace TicTacToe.Console
             }
         }
 
-        static void Game_Ended(object sender, MessageEventArgs e)
+        static void Game_Ended(object sender, GameEndEventArgs e)
         {
             System.Console.WriteLine(e.Message);
         }

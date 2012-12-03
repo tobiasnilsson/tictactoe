@@ -17,7 +17,8 @@ namespace TicTacToe.WebUI.Hubs
         {
             var game = new GameManager(
                 new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players"), 
-                new BoardFactory());
+                new BoardFactory(),
+                new WinnerCheckerFactory());
 
             game.BoardUpdated += game_BoardUpdated;
             game.Ended += game_Ended;
@@ -25,7 +26,7 @@ namespace TicTacToe.WebUI.Hubs
             game.Play();
         }
 
-        protected void game_Ended(object sender, MessageEventArgs e)
+        protected void game_Ended(object sender, GameEndEventArgs e)
         {
             Clients.All.gameEnded(string.Concat(DateTime.Now.ToShortTimeString(),": ",e.Message));
         }

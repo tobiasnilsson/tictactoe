@@ -2,5 +2,5 @@
 
 namespace TicTacToe.Common.EventHandlers
 {
-    public delegate void MessageEventHandler(object sender, MessageEventArgs args);
+    public delegate void MessageEventHandler(object sender, GameEndEventArgs args);
 }
