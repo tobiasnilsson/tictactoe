@@ -2,12 +2,9 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TicTacToe.Common.Entities;
 using TicTacToe.Common.EventArgs;
 using TicTacToe.Common.EventHandlers;
-using TicTacToe.Common.Factories;
 using TicTacToe.Common.Interfaces;
 
 namespace TicTacToe.Common
