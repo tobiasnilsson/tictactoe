@@ -51,6 +51,7 @@ namespace TicTacToe.Common
             var maxDiscsOnBoard = board.BoundaryX * board.BoundaryY;
             int i = 0;
             var winnerCheckers = _winnerCheckerFactory.GetWinnerCheckers();
+            int playerCount = players.Count;
 
             while (true)
             {
@@ -63,7 +64,7 @@ namespace TicTacToe.Common
                     break;
                 }
 
-                var currentPlayer = players[i % 2];
+                var currentPlayer = players[i % playerCount];
                 bool isLegalPlay = true;
                 string msg = string.Empty;
                 var isWinner = false;
@@ -92,13 +93,6 @@ namespace TicTacToe.Common
             }
         }
 
-        /// <summary>
-        /// Returnerar isWinner
-        /// </summary>
-        /// <param name="discPosition"></param>
-        /// <param name="board"></param>
-        /// <param name="isLegalPlay"></param>
-        /// <returns></returns>
         public void AddDisc(DiscPosition discPosition, Board board, out bool isLegalPlay)
         {
             isLegalPlay = true;
@@ -112,6 +106,9 @@ namespace TicTacToe.Common
                 isLegalPlay = false;
             }
 
+            if(board.DiscsOnBoard == null)
+                board.DiscsOnBoard = new List<DiscPosition>();
+
             //Lägger på upptagen position
             if (board.DiscsOnBoard.Exists(p =>
                 p.X.Equals(discPosition.X) && p.Y.Equals(discPosition.Y)
@@ -121,17 +118,13 @@ namespace TicTacToe.Common
             }
 
             board.DiscsOnBoard.Add(discPosition);
-
-            //TODO: behövs denna?
-            //Sortera i horisontalordning
-            board.DiscsOnBoard = board.DiscsOnBoard.OrderBy(p => p.Y).ThenBy(p => p.X).ToList();
         }
 
-        private bool IsWinner(IEnumerable<DiscPosition> list, string playerName, IEnumerable<IWinnerChecker> winnerCheckers, out List<DiscPosition> winningRow)
+        public bool IsWinner(IEnumerable<DiscPosition> discsOnBoard, string playerName, IEnumerable<IWinnerChecker> winnerCheckers, out List<DiscPosition> winningRow)
         {
             winningRow = new List<DiscPosition>();
 
-            var filteredList = list.Where(d => d.PlayerName.Equals(playerName)).ToList();
+            var filteredList = discsOnBoard.Where(d => d.PlayerName.Equals(playerName)).ToList();
 
             if (filteredList.Count() < 4)
                 return false;

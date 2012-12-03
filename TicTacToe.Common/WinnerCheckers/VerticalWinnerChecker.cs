@@ -25,20 +25,21 @@ namespace TicTacToe.Common.WinnerCheckers
                 if (discsOnCol.Count < 4)
                     continue;
 
-                var previousY = int.MinValue;
-                var countInCol = 1;
-                foreach (var disc in discsOnCol)
+                var previousDisc = discsOnCol.First();
+                winningCombination.Clear();
+                winningCombination.Add(previousDisc);
+                
+                foreach (var disc in discsOnCol.Skip(1))
                 {
-                    if (previousY + 1 == disc.Y)
-                    {
-                        winningCombination.Add(disc);
-                        if (winningCombination.Count == 4)
-                            return true;
-                    }
-                    else
+                    if (previousDisc.Y + 1 != disc.Y)
                         winningCombination.Clear();
 
-                    previousY = disc.Y;
+                    winningCombination.Add(disc);
+
+                    if (winningCombination.Count == 4)
+                            return true;
+                
+                    previousDisc = disc;
                 }
             }
 

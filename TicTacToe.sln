@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Player2", "Player2\Player2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.WebUI", "TicTacToe.WebUI\TicTacToe.WebUI.csproj", "{C55CC6AD-4F53-4B94-B75C-CBD60BFEF15F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{13D99E25-48B0-475A-9755-D17F165054B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe.Common.Tests", "TicTacToe.Common.Tests\TicTacToe.Common.Tests.csproj", "{A10A5009-BADA-4CC0-94F4-A49275F94A33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,8 +41,15 @@ Global
 		{C55CC6AD-4F53-4B94-B75C-CBD60BFEF15F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C55CC6AD-4F53-4B94-B75C-CBD60BFEF15F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C55CC6AD-4F53-4B94-B75C-CBD60BFEF15F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10A5009-BADA-4CC0-94F4-A49275F94A33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A10A5009-BADA-4CC0-94F4-A49275F94A33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10A5009-BADA-4CC0-94F4-A49275F94A33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A10A5009-BADA-4CC0-94F4-A49275F94A33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A10A5009-BADA-4CC0-94F4-A49275F94A33} = {13D99E25-48B0-475A-9755-D17F165054B4}
 	EndGlobalSection
 EndGlobal
