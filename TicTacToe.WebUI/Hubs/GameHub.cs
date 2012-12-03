@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using Microsoft.AspNet.SignalR.Hubs;
 using TicTacToe.Common;
 using TicTacToe.Common.EventArgs;
@@ -28,7 +29,11 @@ namespace TicTacToe.WebUI.Hubs
 
         protected void game_Ended(object sender, GameEndEventArgs e)
         {
-            Clients.All.gameEnded(string.Concat(DateTime.Now.ToShortTimeString(),": ",e.Message));
+            var serializer = new JavaScriptSerializer();
+            e.Message = string.Concat(DateTime.Now.ToShortTimeString(), ": ", e.Message);
+
+            var returnMessage = serializer.Serialize(e);
+            Clients.All.gameEnded(returnMessage);
         }
 
         protected void game_BoardUpdated(object sender, BoardEventArgs args)
