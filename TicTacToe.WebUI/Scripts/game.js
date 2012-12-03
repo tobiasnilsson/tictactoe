@@ -33,7 +33,7 @@
             markWinningCombo(result.WinningCombination);
             
             addMessage(result.Message);
-            storeResult(result.message);
+            storeResult(result.Message);
         };
 
         gameHub.client.addDisc = function (connId, x, y, playerName, message) {
