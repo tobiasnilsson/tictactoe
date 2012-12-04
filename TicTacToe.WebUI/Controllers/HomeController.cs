@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TicTacToe.Common.Interfaces;
+using TicTacToe.Common.Repositories;
+using TicTacToe.WebUI.Models;
 
 namespace TicTacToe.WebUI.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPlayerRepository _playerRepository;
+
+        public HomeController()
+        {
+            //TODO: Dependency injection
+            _playerRepository = new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
+        }
+
         public ActionResult Index()
         {
+            var model = new IndexModel();
+            model.Players = _playerRepository.GetPlayers();
+
             ViewBag.Message = "Spela spel!";
 
-            return View();
+            return View(model);
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your app description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
     }
 }
