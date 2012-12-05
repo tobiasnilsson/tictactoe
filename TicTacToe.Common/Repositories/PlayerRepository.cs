@@ -10,6 +10,11 @@ namespace TicTacToe.Common.Repositories
     {
         private string _playerAssemblyDir;
 
+        public PlayerRepository()
+        {
+            _playerAssemblyDir = @"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players";
+        }
+
         public PlayerRepository(string playerAssemblyDir)
         {
             _playerAssemblyDir = playerAssemblyDir;

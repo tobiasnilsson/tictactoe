@@ -1,8 +1,5 @@
 ﻿@model TicTacToe.WebUI.Models.IndexModel
 
-@{
-    ViewBag.Title = "Spela";
-}
 @section featured {
     <section class="featured">
         <div class="content-wrapper">
@@ -14,14 +11,20 @@
     </section>
 }
 <form action="/" method="POST" id="form1">
-    <canvas id="boardCanvas" width="600" height="600"></canvas>
-    <button type="button" value="Spela!" id="playButton">Spela!</button>
-    <ul id="players">
-        @foreach (var player in Model.Players){
-            <li>@player.Name</li>
-        }
-    </ul>
-    <ul id="messages"></ul>
-    <div id="debug"></div>
+    <div id="board">
+        <canvas id="boardCanvas" width="600" height="600"></canvas>
+        <h2>@ViewBag.PlayersTitle</h2>
+        <ul id="players">
+            @foreach (var player in Model.Players)
+            {
+                <li>@player.Name</li>
+            }
+        </ul>
+        <button type="button" value="Spela!" id="playButton">Spela!</button>
+    </div>
+    <div id="secondary">
+        <ul id="messages"></ul>
+        <div id="debug"></div>
+    </div>
 </form>
 

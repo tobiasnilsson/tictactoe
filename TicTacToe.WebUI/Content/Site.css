@@ -490,7 +490,35 @@ tr.pager td {
 
 /* board
 ----------------------------------------------------------*/
-#boardCanvas{ display: block;}
+#board{ float: left; width: 100%;}
+#boardCanvas{ float: left;padding: 0 20px 20px 0; }
+
+ul#players {
+}
+
+ul#players li {
+    list-style-type: none;
+}
+
+/* secondary
+----------------------------------------------------------*/
+div#secondary {
+    float: left;
+}
+ul#messages {
+    padding: 0;
+}
+ul#messages li {
+    list-style-type: none;
+}
+
+ul#messages li:nth-child(even) {
+    background-color:#7AC0DA;
+}
+
+ul#messages li:nth-child(odd) {
+    background-color:#fff;
+}
 
 
 /********************
