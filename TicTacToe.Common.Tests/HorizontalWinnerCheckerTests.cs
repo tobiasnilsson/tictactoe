@@ -17,12 +17,12 @@ namespace TicTacToe.Common.Tests
             var winningCombo = new List<DiscPosition>();
             var playerDiscs = new List<DiscPosition>
                 {
-                    new DiscPosition(){ PlayerName = "T", X = 4, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 8, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 9, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 10, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 11, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 15, Y = 15}
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 4, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 8, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 10, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 11, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 15, Y = 15}
                 };
 
             var result = checker.IsWinner(playerDiscs, out winningCombo);
@@ -38,12 +38,12 @@ namespace TicTacToe.Common.Tests
             var winningCombo = new List<DiscPosition>();
             var playerDiscs = new List<DiscPosition>
                 {
-                    new DiscPosition(){ PlayerName = "T", X = 4, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 8, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 9, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 10, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 11, Y = 2},
-                    new DiscPosition(){ PlayerName = "T", X = 15, Y = 15}
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 4, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 8, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 10, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 11, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 15, Y = 15}
                 };
 
             var result = checker.IsWinner(playerDiscs, out winningCombo);

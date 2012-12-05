@@ -6,36 +6,33 @@ using System.Web.Mvc;
 using Ninject.Modules;
 using TicTacToe.Common.Interfaces;
 using TicTacToe.Common.Repositories;
+using TicTacToe.WebUI.Decorators;
+using TicTacToe.WebUI.Managers;
 using TicTacToe.WebUI.Models;
-using TicTacToe.WebUI.Test;
 
 namespace TicTacToe.WebUI.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IPlayerRepository _playerRepository;
-        private readonly ITest _test;
-
-        public HomeController()
-        {
-            _playerRepository = new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
-        }
-
-        public HomeController(IPlayerRepository playerRepository)
+        private IPlayerRepository _playerRepository;
+        private IDiscColorManager _discColorManager;
+        
+        public HomeController(IPlayerRepository playerRepository, IDiscColorManager discColorManager)
         {
             _playerRepository = playerRepository;
-        }
-
-        public HomeController(ITest test)
-        {
-            this._test = test;
+            _discColorManager = discColorManager;
         }
 
         public ActionResult Index()
         {
-            var model = new IndexModel {Players = _playerRepository.GetPlayers()};
+            var players = _playerRepository.GetPlayers();
 
-            ViewBag.Message = "Spela spel!"; 
+            var model = new IndexModel
+                {
+                    Players = players.Select(p => new ColoredPlayer(p) { RgbColor = _discColorManager.GetDiscColor(p.Name[0]) })
+                };
+
+            ViewBag.Message = "Spela spel!";
             ViewBag.Title = "Spela";
             ViewBag.PlayersTitle = "Spelare";
 

@@ -70,7 +70,7 @@ namespace TicTacToe.Console
                 {
                     //Om platsen är kryssad
                     var disc = discsOnRow.FirstOrDefault(d => d.X == j);
-                    rowString += (disc != null ? disc.PlayerName[0].ToString(CultureInfo.InvariantCulture) : "-") + " ";
+                    rowString += (disc != null ? disc.PlayerInitialLetter.ToString(CultureInfo.InvariantCulture) : "-") + " ";
                 }
 
                 System.Console.WriteLine(rowString);

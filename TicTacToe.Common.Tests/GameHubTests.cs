@@ -26,7 +26,7 @@ namespace TicTacToe.Common.Tests
         [Test]
         public void ShouldStateIllegalPlayIfOutsideBoard()
         {
-            var disc = new DiscPosition { PlayerName = "Tobias", X = 0, Y = 0 };
+            var disc = new DiscPosition { PlayerInitialLetter = 'T', X = 0, Y = 0 };
             var board = new Board { BoundaryX = 20, BoundaryY = 20 };
             bool isLegalPlay = true;
 
@@ -38,14 +38,14 @@ namespace TicTacToe.Common.Tests
         [Test]
         public void ShouldStateIllegalPlayIfAddingOnOccupiedPosition()
         {
-            var disc = new DiscPosition { PlayerName = "Tobias", X = 15, Y = 10 };
+            var disc = new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 10 };
             var board = new Board
                 {
                     BoundaryX = 20, 
                     BoundaryY = 20, 
                     DiscsOnBoard = new List<DiscPosition>
                         {
-                            new DiscPosition { PlayerName = "T", X = 15, Y = 10 }
+                            new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 10 }
                         }
                 };
             bool isLegalPlay = true;
@@ -58,7 +58,7 @@ namespace TicTacToe.Common.Tests
         [Test]
         public void ShouldNotThrowExceptionIfDiscsOnBoardIsNull()
         {
-            var disc = new DiscPosition { PlayerName = "Tobias", X = 15, Y = 10 };
+            var disc = new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 10 };
             var board = new Board
             {
                 BoundaryX = 20,
@@ -80,11 +80,11 @@ namespace TicTacToe.Common.Tests
                     BoundaryY = 20, 
                     DiscsOnBoard = new List<DiscPosition>
                         {
-                            new DiscPosition { PlayerName = "T", X = 15, Y = 10 },
-                            new DiscPosition { PlayerName = "T", X = 15, Y = 11 },
-                            new DiscPosition { PlayerName = "T", X = 15, Y = 12 },
-                            new DiscPosition { PlayerName = "T", X = 15, Y = 13 },
-                            new DiscPosition { PlayerName = "U", X = 15, Y = 10 },
+                            new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 10 },
+                            new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 11 },
+                            new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 12 },
+                            new DiscPosition { PlayerInitialLetter = 'T', X = 15, Y = 13 },
+                            new DiscPosition { PlayerInitialLetter = 'U', X = 15, Y = 10 },
                         }
                 };
 
@@ -94,7 +94,7 @@ namespace TicTacToe.Common.Tests
 
             var checkers = new List<IWinnerChecker>() { checker.Object };
 
-            var result = _gameManager.IsWinner(board.DiscsOnBoard, "T", checkers, out winningCombo);
+            var result = _gameManager.IsWinner(board.DiscsOnBoard, 'T', checkers, out winningCombo);
 
             Assert.IsFalse(result);
         }

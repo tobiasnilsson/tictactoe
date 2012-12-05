@@ -68,14 +68,14 @@ namespace TicTacToe.Common
                 var winningCombination = new List<DiscPosition>();
 
                 var discPosition = currentPlayer.Play(board);
-                discPosition.PlayerName = currentPlayer.Name[0].ToString(CultureInfo.InvariantCulture);
+                discPosition.PlayerInitialLetter = currentPlayer.Name[0];
 
                 AddDisc(discPosition, board, out isLegalPlay);
 
                 if (!isLegalPlay)
                     msg = string.Concat("Oregelmässigt spel av ", currentPlayer.Name);
                 else
-                    isWinner = IsWinner(board.DiscsOnBoard, discPosition.PlayerName, winnerCheckers, out winningCombination);
+                    isWinner = IsWinner(board.DiscsOnBoard, discPosition.PlayerInitialLetter, winnerCheckers, out winningCombination);
 
                 OnBoardUpdated(new BoardEventArgs { CurrentBoard = board, Message = msg, LatestDiscPosition = discPosition });
 
@@ -117,11 +117,11 @@ namespace TicTacToe.Common
             board.DiscsOnBoard.Add(discPosition);
         }
 
-        public bool IsWinner(IEnumerable<DiscPosition> discsOnBoard, string playerName, IEnumerable<IWinnerChecker> winnerCheckers, out List<DiscPosition> winningRow)
+        public bool IsWinner(IEnumerable<DiscPosition> discsOnBoard, char playerInitialLetter, IEnumerable<IWinnerChecker> winnerCheckers, out List<DiscPosition> winningRow)
         {
             winningRow = new List<DiscPosition>();
 
-            var filteredList = discsOnBoard.Where(d => d.PlayerName.Equals(playerName)).ToList();
+            var filteredList = discsOnBoard.Where(d => d.PlayerInitialLetter.Equals(playerInitialLetter)).ToList();
 
             if (filteredList.Count() < 4)
                 return false;

@@ -36,8 +36,8 @@
             storeResult(result.Message);
         };
 
-        gameHub.client.addDisc = function (connId, x, y, playerName, message) {
-            drawDisc(x, y, playerName);
+        gameHub.client.addDisc = function (connId, x, y, playerName, playerColor, message) {
+            drawDisc(x, y, playerName, playerColor);
 
             if (message && message.length > 0)
                 addMessage(message);
@@ -61,24 +61,8 @@
             var x = disc.X;
             var y = disc.Y;
             var color = "rgb(0,255,0)";
-            drawDisc(x, y, disc.PlayerName, color);
+            drawDisc(x, y, disc.PlayerInitialLetter, color);
         }
-    }
-    
-    var _playersAndColors = new Array();
-    function getColor(playerName) {
-        if (!_playersAndColors[playerName])
-            _playersAndColors[playerName] = getRandomColor();
-
-        return _playersAndColors[playerName];
-    }
-    function getRandomColor() {
-        var colorStr = "rgb({r},{g},{b})";
-        var r = Math.floor((Math.random() * 255) + 1);
-        var g = Math.floor((Math.random() * 255) + 1);
-        var b = Math.floor((Math.random() * 255) + 1);
-
-        return colorStr.replace("{r}", r).replace("{g}", g).replace("{b}",b);
     }
     
     function storeResult(message) {
@@ -107,7 +91,7 @@
         x = x * 30 - 30;
         y = y * 30 - 30;
 
-        ctx.fillStyle = rgbColor ? rgbColor : getColor(name);
+        ctx.fillStyle = rgbColor;
         ctx.fillRect(x, y, 30, 30);
 
         ctx.fillStyle = "rgb(0,0,0)";

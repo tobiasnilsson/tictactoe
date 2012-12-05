@@ -1,7 +1,6 @@
 using Ninject.Planning.Bindings;
 using TicTacToe.Common.Interfaces;
 using TicTacToe.Common.Repositories;
-using TicTacToe.WebUI.Test;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(TicTacToe.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(TicTacToe.WebUI.App_Start.NinjectWebCommon), "Stop")]
@@ -16,6 +15,7 @@ namespace TicTacToe.WebUI.App_Start
     using Ninject;
     using Ninject.Web.Common;
     using Ninject.Modules;
+    using TicTacToe.WebUI.Managers;
 
     public static class NinjectWebCommon 
     {
@@ -59,11 +59,8 @@ namespace TicTacToe.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            //kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", @"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
-            //kernel.Bind<IPlayerRepository>().To<PlayerRepository>();
-
-            kernel.Bind<ITest>().To<Test.Test>();
-
+            kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", @"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
+            kernel.Bind<IDiscColorManager>().To<DiscColorManager>();
         }        
     }
     
