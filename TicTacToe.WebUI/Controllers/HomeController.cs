@@ -13,10 +13,15 @@ namespace TicTacToe.WebUI.Controllers
     {
         private readonly IPlayerRepository _playerRepository;
 
-        public HomeController()
+        //public HomeController()
+        //{
+        //    _playerRepository = new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
+            
+        //}
+
+        public HomeController(IPlayerRepository playerRepository)
         {
-            //TODO: Dependency injection
-            _playerRepository = new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
+            _playerRepository = playerRepository;
         }
 
         public ActionResult Index()
