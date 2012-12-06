@@ -17,7 +17,7 @@
         <ul id="players">
             @foreach (var player in Model.Players)
             {
-                <li>@player.Name</li>
+                <li style="background-color: @player.RgbColor">@player.Name</li>
             }
         </ul>
         <button type="button" value="Spela!" id="playButton">Spela!</button>
