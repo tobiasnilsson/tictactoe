@@ -15,25 +15,35 @@ namespace TicTacToe.WebUI.Managers
         public string GetDiscColor(char playerInitialLetter)
         {
             var key = playerInitialLetter.ToString(CultureInfo.InvariantCulture);
+            string color;
 
-            if (!PlayerAndColor.ContainsKey(key))
+            PlayerAndColor.TryGetValue(key, out color);
+
+            if (string.IsNullOrEmpty(color))
             {
-                PlayerAndColor.Add(key, GetRandomRgbColor());
+                color = GetRandomRgbColor();
+                PlayerAndColor.Add(key, color); //Will probably cause issues when running several threads, but ok for now.
             }
-            return PlayerAndColor[key];
+
+            return color;
         }
 
         public string GetRandomRgbColor()
         {
-            const string colorStr = "rgb({0},{1},{2})";
+            string colorStr = "rgb({0},{1},{2})";
 
-            var random = new Random();
+            var random = new Random(DateTime.Now.Millisecond);
 
             var r = random.Next(10, 255);
             var g = random.Next(10, 255);
             var b = random.Next(10, 255);
 
             return string.Format(colorStr, r, g, b);
+        }
+        
+        public void ClearDiscColors()
+        {
+            PlayerAndColor.Clear();
         }
     }
 }

@@ -3,5 +3,6 @@
     public interface IDiscColorManager
     {
         string GetDiscColor(char playerInitialLetter);
+        void ClearDiscColors();
     }
 }
