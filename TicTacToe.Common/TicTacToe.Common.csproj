@@ -57,6 +57,7 @@
     <Compile Include="Entities\DiscPosition.cs" />
     <Compile Include="EventArgs\MessageEventArgs.cs" />
     <Compile Include="Factories\BoardFactory.cs" />
+    <Compile Include="Interfaces\IGameManager.cs" />
     <Compile Include="Interfaces\IWinnerCheckerFactory.cs" />
     <Compile Include="Factories\WinnerCheckerFactory.cs" />
     <Compile Include="Interfaces\IBoardFactory.cs" />

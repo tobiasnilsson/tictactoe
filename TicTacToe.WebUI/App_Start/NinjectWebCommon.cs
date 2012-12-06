@@ -59,8 +59,10 @@ namespace TicTacToe.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", @"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players");
+            kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", System.Web.Hosting.HostingEnvironment.MapPath("~/Players"));
             kernel.Bind<IDiscColorManager>().To<DiscColorManager>();
+
+            //SignalR.Hosting.AspNet.AspNetHost.SetResolver(new SignalR.Ninject.NinjectDependencyResolver(kernel));
         }        
     }
     

@@ -9,30 +9,40 @@ using TicTacToe.Common.EventArgs;
 using TicTacToe.Common.Factories;
 using TicTacToe.Common.Repositories;
 using TicTacToe.WebUI.Managers;
+using TicTacToe.Common.Interfaces;
 
 namespace TicTacToe.WebUI.Hubs
 {
     [HubName("game")]
     public class GameHub : Hub
     {
-        private DiscColorManager _discColorManager;
+        private IDiscColorManager _discColorManager;
+        private IGameManager _gameManager;
+
+        //public GameHub(IPlayerRepository playerRepository, IDiscColorManager discColorManager, IBoardFactory boardFactory, IWinnerCheckerFactory winnerCheckerFactory)
+        //{
+        //    _playerRepository = playerRepository;
+        //    _discColorManager = discColorManager;
+        //    _boardFactory = boardFactory;
+        //    _winnerCheckerFactory = winnerCheckerFactory;
+        //}
 
         public GameHub()
         {
             _discColorManager = new DiscColorManager();
+            var playerRepository = new PlayerRepository(System.Web.Hosting.HostingEnvironment.MapPath("~/Players"));
+            var winnerCheckerFactory = new WinnerCheckerFactory();
+            var boardFactory = new BoardFactory();
+
+            _gameManager = new GameManager(playerRepository, boardFactory, winnerCheckerFactory);
         }
 
         public void Play()
         {
-            var game = new GameManager(
-                new PlayerRepository(@"C:\Users\Tobias Nilsson\Documents\GitHub\tictactoe\Players"), 
-                new BoardFactory(),
-                new WinnerCheckerFactory());
+            _gameManager.BoardUpdated += game_BoardUpdated;
+            _gameManager.Ended += game_Ended;
 
-            game.BoardUpdated += game_BoardUpdated;
-            game.Ended += game_Ended;
-
-            game.Play();
+            _gameManager.Play();
         }
 
         protected void game_Ended(object sender, GameEndEventArgs e)

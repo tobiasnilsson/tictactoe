@@ -9,7 +9,7 @@ using TicTacToe.Common.Interfaces;
 
 namespace TicTacToe.Common
 {
-    public class GameManager
+    public class GameManager : IGameManager
     {
         public event BoardEventHandler BoardUpdated;
         public event MessageEventHandler Ended;
