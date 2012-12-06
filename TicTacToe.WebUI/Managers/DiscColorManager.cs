@@ -12,6 +12,17 @@ namespace TicTacToe.WebUI.Managers
             get { return _playerAndColor; }
         }
 
+        private Random _randomizer;
+        private Random Randomizer
+        {
+            get
+            {
+                if (_randomizer == null)
+                    _randomizer = new Random();
+                return _randomizer;
+            }
+        }
+
         public string GetDiscColor(char playerInitialLetter)
         {
             var key = playerInitialLetter.ToString(CultureInfo.InvariantCulture);
@@ -32,15 +43,13 @@ namespace TicTacToe.WebUI.Managers
         {
             string colorStr = "rgb({0},{1},{2})";
 
-            var random = new Random(DateTime.Now.Millisecond);
-
-            var r = random.Next(10, 255);
-            var g = random.Next(10, 255);
-            var b = random.Next(10, 255);
+            var r = Randomizer.Next(10, 255);
+            var g = Randomizer.Next(10, 255);
+            var b = Randomizer.Next(10, 255);
 
             return string.Format(colorStr, r, g, b);
         }
-        
+
         public void ClearDiscColors()
         {
             PlayerAndColor.Clear();
