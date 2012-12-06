@@ -19,22 +19,10 @@ namespace TicTacToe.WebUI.Hubs
         private IDiscColorManager _discColorManager;
         private IGameManager _gameManager;
 
-        //public GameHub(IPlayerRepository playerRepository, IDiscColorManager discColorManager, IBoardFactory boardFactory, IWinnerCheckerFactory winnerCheckerFactory)
-        //{
-        //    _playerRepository = playerRepository;
-        //    _discColorManager = discColorManager;
-        //    _boardFactory = boardFactory;
-        //    _winnerCheckerFactory = winnerCheckerFactory;
-        //}
-
-        public GameHub()
+        public GameHub(IGameManager gameManager, IDiscColorManager discColorManager)
         {
-            _discColorManager = new DiscColorManager();
-            var playerRepository = new PlayerRepository(System.Web.Hosting.HostingEnvironment.MapPath("~/Players"));
-            var winnerCheckerFactory = new WinnerCheckerFactory();
-            var boardFactory = new BoardFactory();
-
-            _gameManager = new GameManager(playerRepository, boardFactory, winnerCheckerFactory);
+            _discColorManager = discColorManager;
+            _gameManager = gameManager;
         }
 
         public void Play()

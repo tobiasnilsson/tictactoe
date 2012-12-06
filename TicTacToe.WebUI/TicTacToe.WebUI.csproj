@@ -65,6 +65,14 @@
     <Reference Include="Ninject.Web.Mvc">
       <HintPath>..\packages\Ninject.MVC3.3.0.0.6\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="SignalR, Version=0.5.84.10501, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SignalR.Server.0.5.84-rc\lib\net40\SignalR.dll</HintPath>
+    </Reference>
+    <Reference Include="SignalR.Ninject, Version=0.5.3.10501, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\SignalR.Ninject.0.5.3-pre\lib\net40\SignalR.Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -180,6 +188,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectSignalRDependencyResolver.cs" />
     <Compile Include="App_Start\NinjectWeb.cs" />
     <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RegisterHubs.cs" />

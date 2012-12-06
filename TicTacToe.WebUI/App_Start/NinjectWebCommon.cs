@@ -1,4 +1,8 @@
+using System.Web.Routing;
+using Microsoft.AspNet.SignalR;
 using Ninject.Planning.Bindings;
+using TicTacToe.Common;
+using TicTacToe.Common.Factories;
 using TicTacToe.Common.Interfaces;
 using TicTacToe.Common.Repositories;
 
@@ -59,11 +63,21 @@ namespace TicTacToe.WebUI.App_Start
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
-            kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", System.Web.Hosting.HostingEnvironment.MapPath("~/Players"));
+            //Binding with parameterless constructor
             kernel.Bind<IDiscColorManager>().To<DiscColorManager>();
+            kernel.Bind<IBoardFactory>().To<BoardFactory>();
 
-            //SignalR.Hosting.AspNet.AspNetHost.SetResolver(new SignalR.Ninject.NinjectDependencyResolver(kernel));
+            //Binding with constructor accepting a string parameter
+            kernel.Bind<IPlayerRepository>().To<PlayerRepository>().WithConstructorArgument("playerAssemblyDir", System.Web.Hosting.HostingEnvironment.MapPath("~/Players"));
+            kernel.Bind<IWinnerCheckerFactory>().To<WinnerCheckerFactory>();
+
+            //Binding with constructor accepting three parameters of interface type
+            kernel.Bind<IGameManager>().To<GameManager>()
+                  .WithConstructorArgument("playerFactory", ctx => ctx.Kernel.Get<IPlayerRepository>())
+                  .WithConstructorArgument("boardFactory", ctx => ctx.Kernel.Get<IBoardFactory>())
+                  .WithConstructorArgument("winnerCheckerFactory", ctx => ctx.Kernel.Get<IWinnerCheckerFactory>());
+            
+            RouteTable.Routes.MapHubs(new NinjectSignalRDependencyResolver(kernel));
         }        
     }
-    
 }
