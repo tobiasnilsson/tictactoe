@@ -19,7 +19,7 @@ namespace TicTacToe.Common.WinnerCheckers
             for (int y = 1; y <= rows; y++)
             {
                 var discsOnRow = playerDiscs.Where(d => d.Y == y).OrderBy(d => d.X).ToList();
-                if (discsOnRow.Count < 4)
+                if (discsOnRow.Count < 5)
                     continue;
 
                 var previousDisc = discsOnRow.First();
@@ -33,7 +33,7 @@ namespace TicTacToe.Common.WinnerCheckers
 
                     winningCombination.Add(disc);
 
-                    if (winningCombination.Count == 4)
+                    if (winningCombination.Count == 5)
                         return true;
 
                     previousDisc = disc;

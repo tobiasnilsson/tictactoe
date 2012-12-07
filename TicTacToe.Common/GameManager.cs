@@ -94,7 +94,7 @@ namespace TicTacToe.Common
         {
             isLegalPlay = true;
 
-            //Utanför brädet
+            //Outside the board
             if (discPosition.X > board.BoundaryX
                 || discPosition.Y > board.BoundaryY
                 || discPosition.X < 1
@@ -106,7 +106,7 @@ namespace TicTacToe.Common
             if(board.DiscsOnBoard == null)
                 board.DiscsOnBoard = new List<DiscPosition>();
 
-            //Lägger på upptagen position
+            //On occupied position
             if (board.DiscsOnBoard.Exists(p =>
                 p.X.Equals(discPosition.X) && p.Y.Equals(discPosition.Y)
                 ))

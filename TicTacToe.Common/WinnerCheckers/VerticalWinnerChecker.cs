@@ -22,7 +22,7 @@ namespace TicTacToe.Common.WinnerCheckers
             for (int x = 1; x <= columns; x++)
             {
                 var discsOnCol = playerDiscs.Where(d => d.X == x).OrderBy(d => d.Y).ToList();
-                if (discsOnCol.Count < 4)
+                if (discsOnCol.Count < 5)
                     continue;
 
                 var previousDisc = discsOnCol.First();
@@ -36,7 +36,7 @@ namespace TicTacToe.Common.WinnerCheckers
 
                     winningCombination.Add(disc);
 
-                    if (winningCombination.Count == 4)
+                    if (winningCombination.Count == 5)
                             return true;
                 
                     previousDisc = disc;
