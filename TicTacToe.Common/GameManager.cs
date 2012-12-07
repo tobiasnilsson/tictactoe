@@ -14,13 +14,13 @@ namespace TicTacToe.Common
         public event BoardEventHandler BoardUpdated;
         public event MessageEventHandler Ended;
 
-        private IPlayerRepository _playerFactory;
+        private IPlayerRepository _playerRepository;
         private IBoardFactory _boardFactory;
         private IWinnerCheckerFactory _winnerCheckerFactory;
 
-        public GameManager(IPlayerRepository playerFactory, IBoardFactory boardFactory, IWinnerCheckerFactory winnerCheckerFactory)
+        public GameManager(IPlayerRepository playerRepository, IBoardFactory boardFactory, IWinnerCheckerFactory winnerCheckerFactory)
         {
-            _playerFactory = playerFactory;
+            _playerRepository = playerRepository;
             _boardFactory = boardFactory;
             _winnerCheckerFactory = winnerCheckerFactory;
         }
@@ -39,7 +39,7 @@ namespace TicTacToe.Common
 
         public void Play()
         {
-            var players = _playerFactory.GetPlayers();
+            var players = _playerRepository.GetPlayers();
 
             if (players.Count != 2)
                 throw new NotSupportedException("Only two players can play this game. Check number of implementations of IPlayer in assembly directory.");
