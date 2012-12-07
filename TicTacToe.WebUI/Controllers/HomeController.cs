@@ -32,9 +32,9 @@ namespace TicTacToe.WebUI.Controllers
                     Players = players.Select(p => new ColoredPlayer(p) { RgbColor = _discColorManager.GetDiscColor(p.Name[0]) })
                 };
 
-            ViewBag.Message = "Spela spel!";
-            ViewBag.Title = "Spela";
-            ViewBag.PlayersTitle = "Spelare";
+            ViewBag.Message = "Play game!";
+            ViewBag.Title = "Play";
+            ViewBag.PlayersTitle = "Players";
 
             return View(model);
         }

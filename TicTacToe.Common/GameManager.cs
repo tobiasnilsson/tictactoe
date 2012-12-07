@@ -57,7 +57,7 @@ namespace TicTacToe.Common
                 //Sanity check
                 if (board.DiscsOnBoard.Count == maxDiscsOnBoard || i > 10000)
                 {
-                    OnEnded(new GameEndEventArgs { Message = string.Format("Spelet avslutades oavgjort på {0} omgångar.", i) });
+                    OnEnded(new GameEndEventArgs { Message = "It´s a draw!" });
                     break;
                 }
 
@@ -73,7 +73,7 @@ namespace TicTacToe.Common
                 AddDisc(discPosition, board, out isLegalPlay);
 
                 if (!isLegalPlay)
-                    msg = string.Concat("Oregelmässigt spel av ", currentPlayer.Name);
+                    msg = string.Concat("Illegal move by ", currentPlayer.Name);
                 else
                     isWinner = IsWinner(board.DiscsOnBoard, discPosition.PlayerInitialLetter, winnerCheckers, out winningCombination);
 
@@ -81,7 +81,7 @@ namespace TicTacToe.Common
 
                 if (isWinner)
                 {
-                    msg = string.Format("Vinnare är {0} på {1} omgångar med x,y={2},{3}.", currentPlayer.Name, i, discPosition.X, discPosition.Y);
+                    msg = string.Format("Winner is {0} after {1} rounds x,y={2},{3}.", currentPlayer.Name, i, discPosition.X, discPosition.Y);
                     OnEnded(new GameEndEventArgs { Message = msg, WinningCombination = winningCombination });
                     break;
                 }

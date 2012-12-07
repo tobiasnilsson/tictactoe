@@ -34,7 +34,7 @@ namespace TicTacToe.Console
                     {
                         game.Play();
                     }
-                    catch(NotSupportedException e){ System.Console.WriteLine("Endast två spelare tillåtna."); }
+                    catch(NotSupportedException e){ System.Console.WriteLine("Only two players allowed."); }
                     catch (Exception e){ throw; }
             }
         }
