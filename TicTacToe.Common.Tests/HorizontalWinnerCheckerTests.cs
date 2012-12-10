@@ -22,6 +22,7 @@ namespace TicTacToe.Common.Tests
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 10, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 11, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 12, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 15, Y = 15}
                 };
 
@@ -43,6 +44,7 @@ namespace TicTacToe.Common.Tests
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 10, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 11, Y = 2},
+                    new DiscPosition(){ PlayerInitialLetter = 'T', X = 12, Y = 2},
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 15, Y = 15}
                 };
 
@@ -52,7 +54,10 @@ namespace TicTacToe.Common.Tests
             Assert.IsTrue(winningCombo.Contains(playerDiscs[2]));
             Assert.IsTrue(winningCombo.Contains(playerDiscs[3]));
             Assert.IsTrue(winningCombo.Contains(playerDiscs[4]));
-            Assert.IsTrue(winningCombo.Count == 4);
+            Assert.IsTrue(winningCombo.Contains(playerDiscs[5]));
+            Assert.IsTrue(winningCombo.Count == 5);
         }
+
+
     }
 }

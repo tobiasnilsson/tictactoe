@@ -39,7 +39,7 @@ namespace TicTacToe.WebUI.Controllers
             return View(model);
         }
 
-        public ActionResult ClearColors()
+        public RedirectToRouteResult ClearColors()
         {
             _discColorManager.ClearDiscColors();
 
