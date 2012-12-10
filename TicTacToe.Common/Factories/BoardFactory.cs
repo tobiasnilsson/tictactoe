@@ -11,7 +11,6 @@ namespace TicTacToe.Common.Factories
         {
             var board = new Board
                 {
-                    //TODO: slumpa värden eller ta emot som parametrar
                     BoundaryX = 20,
                     BoundaryY = 20,
                     DiscsOnBoard = new List<DiscPosition>()
