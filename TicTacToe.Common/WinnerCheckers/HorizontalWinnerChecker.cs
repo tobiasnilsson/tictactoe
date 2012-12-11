@@ -11,7 +11,7 @@ namespace TicTacToe.Common.WinnerCheckers
         {
             winningCombination = new List<DiscPosition>();
 
-            var lastOrDefault = playerDiscs.OrderBy(d => d.X).LastOrDefault();
+            var lastOrDefault = playerDiscs.OrderBy(d => d.Y).LastOrDefault();
             if (lastOrDefault == null) return false;
 
             var rows = lastOrDefault.Y;

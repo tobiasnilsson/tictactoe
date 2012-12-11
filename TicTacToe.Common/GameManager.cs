@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text;
 using TicTacToe.Common.Entities;
 using TicTacToe.Common.EventArgs;
 using TicTacToe.Common.EventHandlers;
@@ -76,7 +77,7 @@ namespace TicTacToe.Common
                     msg = string.Concat("Illegal move by ", currentPlayer.Name);
                 else
                     isWinner = IsWinner(board.DiscsOnBoard, discPosition.PlayerInitialLetter, winnerCheckers, out winningCombination);
-
+                
                 OnBoardUpdated(new BoardEventArgs { CurrentBoard = board, Message = msg, LatestDiscPosition = discPosition });
 
                 if (isWinner)
@@ -89,7 +90,7 @@ namespace TicTacToe.Common
                 i++;
             }
         }
-
+        
         public void AddDisc(DiscPosition discPosition, Board board, out bool isLegalPlay)
         {
             isLegalPlay = true;
