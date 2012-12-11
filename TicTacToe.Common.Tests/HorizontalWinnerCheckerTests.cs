@@ -17,14 +17,6 @@ namespace TicTacToe.Common.Tests
             var winningCombo = new List<DiscPosition>();
             var playerDiscs = new List<DiscPosition>
                 {
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 4, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 8, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 10, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 11, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 12, Y = 2},
-                    //new DiscPosition(){ PlayerInitialLetter = 'T', X = 15, Y = 15}
-                    
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 9, Y = 4 },
                     new DiscPosition(){ PlayerInitialLetter = 'U', X = 13, Y = 18 },
                     new DiscPosition(){ PlayerInitialLetter = 'T', X = 12, Y = 6 },
