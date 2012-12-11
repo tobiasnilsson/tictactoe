@@ -9,6 +9,7 @@ using NUnit.Framework;
 using TicTacToe.Common.Interfaces;
 using TicTacToe.WebUI.Controllers;
 using TicTacToe.WebUI.Managers;
+using TicTacToe.WebUI.Models;
 
 namespace TicTacToe.WebUI.Tests
 {
@@ -83,6 +84,30 @@ namespace TicTacToe.WebUI.Tests
             var result = controller.ClearColors();
 
             Assert.IsTrue(result.RouteValues.ContainsValue("Index"));
+        }
+
+        [Test]
+        public void IndexShouldContainModel()
+        {
+            var controller = new HomeController(PlayerRepo.Object, DiscColorManager.Object);
+
+            var result = controller.Index() as ViewResult;
+
+            Assert.IsTrue(result.Model != null);
+        }
+
+        [Test]
+        public void IndexModelShouldContainTwoPlayers()
+        {
+            PlayerRepo.Setup(p => p.GetPlayers()).Returns(new List<IPlayer>() {Player1.Object, Player2.Object});
+
+            var controller = new HomeController(PlayerRepo.Object, DiscColorManager.Object);
+
+            var result = controller.Index() as ViewResult;
+            var model = result.Model as IndexModel;
+            var players = new List<IPlayer>(model.Players);
+
+            Assert.IsTrue(players.Count == 2);
         }
     }
 }
