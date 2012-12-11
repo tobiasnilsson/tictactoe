@@ -72,6 +72,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinnerCheckers\HorizontalWinnerChecker.cs" />
     <Compile Include="Interfaces\IWinnerChecker.cs" />
+    <Compile Include="WinnerCheckers\LeftToRightDiagonalChecker.cs" />
+    <Compile Include="WinnerCheckers\RightToLeftDiagonalChecker.cs" />
     <Compile Include="WinnerCheckers\VerticalWinnerChecker.cs" />
   </ItemGroup>
   <ItemGroup>

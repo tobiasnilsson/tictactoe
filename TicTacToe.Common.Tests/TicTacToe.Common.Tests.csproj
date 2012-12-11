@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="HorizontalWinnerCheckerTests.cs" />
     <Compile Include="GameHubTests.cs" />
+    <Compile Include="LeftToRightDiagonalCheckerTests.cs" />
+    <Compile Include="RightToLeftDiagonalCheckerTests.cs" />
     <Compile Include="VerticalWinnerCheckerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -8,7 +8,13 @@ namespace TicTacToe.Common.Factories
     {
         public List<IWinnerChecker> GetWinnerCheckers()
         {
-            return new List<IWinnerChecker>{ new HorizontalWinnerChecker(), new VerticalWinnerChecker() };
+            return new List<IWinnerChecker>
+                {
+                    new HorizontalWinnerChecker(),
+                    new VerticalWinnerChecker(), 
+                    new LeftToRightDiagonalChecker(),
+                    new RightToLeftDiagonalChecker()
+                };
         }
     }
 }
