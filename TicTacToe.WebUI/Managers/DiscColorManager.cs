@@ -4,12 +4,13 @@ using System.Globalization;
 
 namespace TicTacToe.WebUI.Managers
 {
-    public class DiscColorManager : IDiscColorManager
+    public class DiscColorManager : IDiscColorManager, IDisposable
     {
-        private static Dictionary<string, string> _playerAndColor = new Dictionary<string, string>();
+        private static Dictionary<string, string> _playerAndColor;
         private static Dictionary<string, string> PlayerAndColor
         {
-            get { return _playerAndColor; }
+            get { return _playerAndColor ?? (_playerAndColor = new Dictionary<string, string>()); }
+            set { _playerAndColor = value; }
         }
 
         private Random _randomizer;
@@ -53,6 +54,11 @@ namespace TicTacToe.WebUI.Managers
         public void ClearDiscColors()
         {
             PlayerAndColor.Clear();
+        }
+
+        public void Dispose()
+        {
+            PlayerAndColor = null;
         }
     }
 }
