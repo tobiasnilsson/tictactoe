@@ -8,6 +8,8 @@ namespace TicTacToe.Common.Factories
     {
         public List<IWinnerChecker> GetWinnerCheckers()
         {
+            //TODO: could this be done using ninject? Or use reflection.
+
             return new List<IWinnerChecker>
                 {
                     new HorizontalWinnerChecker(),

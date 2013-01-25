@@ -53,6 +53,7 @@ namespace TicTacToe.Common
 
             while (true)
             {
+                //TODO: Refactor whole loop and write unit tests. Perhaps implement an inmemory queue and run from gamehub
                 System.Threading.Thread.Sleep(10);
 
                 //Sanity check

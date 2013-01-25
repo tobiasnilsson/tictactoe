@@ -25,6 +25,8 @@ namespace TicTacToe.WebUI.Controllers
 
         public ActionResult Index()
         {
+            //Read up on lifecycle management in ninject (scoping ) since we dont want several instances of player repo
+
             var players = _playerRepository.GetPlayers();
 
             var model = new IndexModel
