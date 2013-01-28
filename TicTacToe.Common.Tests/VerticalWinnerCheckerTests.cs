@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using NUnit.Framework;
-using TicTacToe.Common.Entities;
 using TicTacToe.Common.WinnerCheckers;
+using TicTacToe.Entities;
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 
 namespace TicTacToe.Common.Tests

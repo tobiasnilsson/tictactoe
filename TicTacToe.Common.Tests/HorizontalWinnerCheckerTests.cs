@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using TicTacToe.Common.Entities;
 using TicTacToe.Common.WinnerCheckers;
 using NUnit.Framework;
+using TicTacToe.Entities;
 
 namespace TicTacToe.Common.Tests
 {

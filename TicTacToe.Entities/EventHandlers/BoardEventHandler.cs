@@ -1,6 +1,6 @@
-﻿using TicTacToe.Common.EventArgs;
+﻿using TicTacToe.Entities.EventArgs;
 
-namespace TicTacToe.Common.EventHandlers
+namespace TicTacToe.Entities.EventHandlers
 {
     public delegate void BoardEventHandler(object sender, BoardEventArgs args);
 }

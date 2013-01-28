@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using TicTacToe.Common.Entities;
+using TicTacToe.Entities;
 
 namespace TicTacToe.Common.Comparers
 {

@@ -2,7 +2,8 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Reflection;
-using TicTacToe.Common.Interfaces;
+using TicTacToe.Entities;
+using TicTacToe.Entities.Repositories;
 
 namespace TicTacToe.Common.Repositories
 {
@@ -23,7 +24,7 @@ namespace TicTacToe.Common.Repositories
             var myPath = _playerAssemblyDir;
             var catalog = new DirectoryCatalog(myPath);
             var container = new CompositionContainer(catalog);
-
+            
             // Import the exported classes
             players.AddRange(container.GetExportedValues<IPlayer>());
 

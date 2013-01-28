@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
-using TicTacToe.Common.Interfaces;
 using TicTacToe.Common.WinnerCheckers;
+using TicTacToe.Entities;
+using TicTacToe.Entities.Factories;
 
 namespace TicTacToe.Common.Factories
 {

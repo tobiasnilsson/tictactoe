@@ -3,8 +3,10 @@ using Microsoft.AspNet.SignalR;
 using Ninject.Planning.Bindings;
 using TicTacToe.Common;
 using TicTacToe.Common.Factories;
-using TicTacToe.Common.Interfaces;
 using TicTacToe.Common.Repositories;
+using TicTacToe.Entities;
+using TicTacToe.Entities.Factories;
+using TicTacToe.Entities.Repositories;
 
 [assembly: WebActivator.PreApplicationStartMethod(typeof(TicTacToe.WebUI.App_Start.NinjectWebCommon), "Start")]
 [assembly: WebActivator.ApplicationShutdownMethodAttribute(typeof(TicTacToe.WebUI.App_Start.NinjectWebCommon), "Stop")]

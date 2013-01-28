@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Moq;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.Interfaces;
 using NUnit.Framework;
+using TicTacToe.Entities;
+using TicTacToe.Entities.Factories;
+using TicTacToe.Entities.Repositories;
 
 namespace TicTacToe.Common.Tests
 {

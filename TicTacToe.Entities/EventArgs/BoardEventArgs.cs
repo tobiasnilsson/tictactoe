@@ -1,6 +1,4 @@
-﻿using TicTacToe.Common.Entities;
-
-namespace TicTacToe.Common.EventArgs
+﻿namespace TicTacToe.Entities.EventArgs
 {
     public class BoardEventArgs : System.EventArgs
     {

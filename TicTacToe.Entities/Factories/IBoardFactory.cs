@@ -1,6 +1,4 @@
-using TicTacToe.Common.Entities;
-
-namespace TicTacToe.Common.Interfaces
+namespace TicTacToe.Entities.Factories
 {
     public interface IBoardFactory
     {

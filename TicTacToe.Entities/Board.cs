@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace TicTacToe.Common.Entities
+namespace TicTacToe.Entities
 {
     public class Board
     {

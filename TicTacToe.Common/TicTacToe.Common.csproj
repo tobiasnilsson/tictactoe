@@ -51,27 +51,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventArgs\BoardEventArgs.cs" />
-    <Compile Include="EventHandlers\BoardEventHandler.cs" />
-    <Compile Include="Entities\Board.cs" />
-    <Compile Include="Entities\DiscPosition.cs" />
-    <Compile Include="EventArgs\MessageEventArgs.cs" />
     <Compile Include="Factories\BoardFactory.cs" />
-    <Compile Include="Interfaces\IGameManager.cs" />
-    <Compile Include="Interfaces\IWinnerCheckerFactory.cs" />
     <Compile Include="Factories\WinnerCheckerFactory.cs" />
-    <Compile Include="Interfaces\IBoardFactory.cs" />
-    <Compile Include="Interfaces\IPlayerRepository.cs" />
-    <Compile Include="EventHandlers\MessageEventHandler.cs" />
     <Compile Include="Repositories\PlayerRepository.cs" />
     <Compile Include="GameManager.cs" />
-    <Compile Include="Interfaces\IPlayer.cs" />
     <Compile Include="Comparers\PositionComparer.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinnerCheckers\HorizontalWinnerChecker.cs" />
-    <Compile Include="Interfaces\IWinnerChecker.cs" />
     <Compile Include="WinnerCheckers\LeftToRightDiagonalChecker.cs" />
     <Compile Include="WinnerCheckers\RightToLeftDiagonalChecker.cs" />
     <Compile Include="WinnerCheckers\VerticalWinnerChecker.cs" />
@@ -80,6 +68,12 @@
     <None Include="app.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TicTacToe.Entities\TicTacToe.Entities.csproj">
+      <Project>{0f047c12-8e48-49ef-9def-32ffa08cb9a9}</Project>
+      <Name>TicTacToe.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

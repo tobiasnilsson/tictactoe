@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.EventHandlers;
+using TicTacToe.Entities.EventHandlers;
 
-namespace TicTacToe.Common.Interfaces
+namespace TicTacToe.Entities
 {
     public interface IGameManager
     {

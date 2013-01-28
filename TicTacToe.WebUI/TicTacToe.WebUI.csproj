@@ -320,6 +320,10 @@
       <Project>{04b82ccb-0c08-43be-bb70-c5501432480d}</Project>
       <Name>TicTacToe.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TicTacToe.Entities\TicTacToe.Entities.csproj">
+      <Project>{0f047c12-8e48-49ef-9def-32ffa08cb9a9}</Project>
+      <Name>TicTacToe.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

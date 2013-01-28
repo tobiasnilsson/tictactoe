@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TicTacToe.Common.Interfaces
+namespace TicTacToe.Entities.Factories
 {
     public interface IWinnerCheckerFactory
     {

@@ -4,12 +4,11 @@ using System.Web;
 using System.Web.Script.Serialization;
 using Microsoft.AspNet.SignalR.Hubs;
 using TicTacToe.Common;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.EventArgs;
 using TicTacToe.Common.Factories;
 using TicTacToe.Common.Repositories;
+using TicTacToe.Entities;
+using TicTacToe.Entities.EventArgs;
 using TicTacToe.WebUI.Managers;
-using TicTacToe.Common.Interfaces;
 
 namespace TicTacToe.WebUI.Hubs
 {

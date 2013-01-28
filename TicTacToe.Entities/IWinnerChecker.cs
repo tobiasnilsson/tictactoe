@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using TicTacToe.Common.Entities;
 
-namespace TicTacToe.Common.Interfaces
+namespace TicTacToe.Entities
 {
     public interface IWinnerChecker
     {

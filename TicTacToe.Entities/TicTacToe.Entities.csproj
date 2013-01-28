@@ -4,23 +4,19 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C72B685-75AC-4A60-88F0-AD7C7EBF5DD9}</ProjectGuid>
+    <ProjectGuid>{0F047C12-8E48-49EF-9DEF-32FFA08CB9A9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Player2</RootNamespace>
-    <AssemblyName>Player2</AssemblyName>
+    <RootNamespace>TicTacToe.Entities</RootNamespace>
+    <AssemblyName>TicTacToe.Entities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SccProjectName>SAK</SccProjectName>
-    <SccLocalPath>SAK</SccLocalPath>
-    <SccAuxPath>SAK</SccAuxPath>
-    <SccProvider>SAK</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\TicTacToe.WebUI\Players\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,18 +39,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SecondPlayer.cs" />
+    <Compile Include="Board.cs" />
+    <Compile Include="DiscPosition.cs" />
+    <Compile Include="EventArgs\BoardEventArgs.cs" />
+    <Compile Include="EventArgs\MessageEventArgs.cs" />
+    <Compile Include="EventHandlers\BoardEventHandler.cs" />
+    <Compile Include="EventHandlers\MessageEventHandler.cs" />
+    <Compile Include="Factories\IBoardFactory.cs" />
+    <Compile Include="Factories\IWinnerCheckerFactory.cs" />
+    <Compile Include="IGameManager.cs" />
+    <Compile Include="IPlayer.cs" />
+    <Compile Include="IWinnerChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\TicTacToe.Common\TicTacToe.Common.csproj">
-      <Project>{04B82CCB-0C08-43BE-BB70-C5501432480D}</Project>
-      <Name>TicTacToe.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\TicTacToe.Entities\TicTacToe.Entities.csproj">
-      <Project>{0F047C12-8E48-49EF-9DEF-32FFA08CB9A9}</Project>
-      <Name>TicTacToe.Entities</Name>
-    </ProjectReference>
+    <Compile Include="Repositories\IPlayerRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

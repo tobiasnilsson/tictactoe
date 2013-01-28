@@ -63,6 +63,10 @@
       <Project>{04B82CCB-0C08-43BE-BB70-C5501432480D}</Project>
       <Name>TicTacToe.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TicTacToe.Entities\TicTacToe.Entities.csproj">
+      <Project>{0F047C12-8E48-49EF-9DEF-32FFA08CB9A9}</Project>
+      <Name>TicTacToe.Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TicTacToe.WebUI\TicTacToe.WebUI.csproj">
       <Project>{C55CC6AD-4F53-4B94-B75C-CBD60BFEF15F}</Project>
       <Name>TicTacToe.WebUI</Name>

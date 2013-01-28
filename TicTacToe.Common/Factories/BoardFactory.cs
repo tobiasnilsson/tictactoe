@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.Interfaces;
+using TicTacToe.Entities;
+using TicTacToe.Entities.Factories;
 
 namespace TicTacToe.Common.Factories
 {

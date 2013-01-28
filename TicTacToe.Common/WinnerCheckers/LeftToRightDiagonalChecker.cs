@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.Interfaces;
+using TicTacToe.Entities;
 
 namespace TicTacToe.Common.WinnerCheckers
 {

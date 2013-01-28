@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using TicTacToe.Common.Entities;
-using TicTacToe.Common.EventArgs;
-using TicTacToe.Common.EventHandlers;
-using TicTacToe.Common.Interfaces;
+using TicTacToe.Entities;
+using TicTacToe.Entities.EventArgs;
+using TicTacToe.Entities.EventHandlers;
+using TicTacToe.Entities.Factories;
+using TicTacToe.Entities.Repositories;
 
 namespace TicTacToe.Common
 {
